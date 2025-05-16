@@ -1,0 +1,394 @@
+package com.example.greetingcard
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.border
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import android.content.res.Configuration
+import com.example.greetingcard.ui.theme.GreetingCardTheme
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.clickable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.focus.focusModifier
+import androidx.compose.ui.unit.max
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.Button
+import androidx.compose.material3.OutlinedButton
+import org.intellij.lang.annotations.JdkConstants
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.ElevatedButton
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.unit.dp
+import kotlin.math.absoluteValue
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
+import androidx.compose.material3.lightColorScheme
+import androidx.compose.ui.text.font.FontWeight
+import android.app.Activity
+import android.graphics.drawable.Drawable
+import android.os.Build
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.darkColorScheme
+import androidx.compose.material3.dynamicDarkColorScheme
+import androidx.compose.material3.dynamicLightColorScheme
+import androidx.compose.material3.lightColorScheme
+import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalView
+import androidx.core.view.ViewCompat
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Text
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.TextField
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.ui.res.stringResource
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material.icons.filled.Search
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
+import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
+import androidx.compose.foundation.lazy.items
+import androidx.core.graphics.drawable.toDrawable
+import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.Spa
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.NavigationRail
+import androidx.compose.material3.NavigationRailItem
+import androidx.compose.ui.graphics.Outline
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.unit.LayoutDirection
+import androidx.compose.ui.unit.Density
+import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.geometry.CornerRadius
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.material.icons.filled.Help
+import androidx.compose.foundation.Canvas
+import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.size
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Rect
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
+import android.content.Context
+import android.graphics.Canvas
+import android.graphics.Paint
+import android.view.View
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.draw.blur
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.BasicText
+import androidx.compose.material.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.vectorResource
+import androidx.compose.material3.Slider
+import androidx.compose.material3.Switch
+import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
+
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            GreetingCardTheme {
+                       TitleScreen()
+                
+
+            }
+        }
+    }
+}
+
+@Composable
+fun TitleScreen() {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(
+                Brush.verticalGradient(
+                    colors = listOf(
+                        Color(0xFF212121),
+                        Color(0xFF424242),
+                        Color(0xFF616161)
+                    )
+                )
+            ), // Dark gray background
+        contentAlignment = Alignment.Center
+    ) {
+
+
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.SpaceBetween,
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(top = 32.dp, bottom = 32.dp)
+        ) {
+            // Title
+            Text(
+                text = "BATTLESHIPS\nARMADA",
+                color = Color.White,
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.headlineLarge,
+                fontWeight = FontWeight.Bold,
+                fontSize = 50.sp
+            )
+
+            // Main Play Button with Side Arrows
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .padding(vertical = 40.dp)
+            ) {
+                Image(
+                    painter = painterResource(R.drawable.white_circle),
+                    contentDescription = "circle",
+                    modifier = Modifier
+                        .size(390.dp)
+                        .clip(CircleShape)
+                        .align(Alignment.Center)
+                )
+
+                Image(
+                    painter = painterResource(R.drawable.grey_circle),
+                    contentDescription = "circle",
+                    modifier = Modifier
+                        .size(325.dp)
+                        .clip(CircleShape)
+                        .align(Alignment.Center)
+                )
+
+                Image(
+                    painter = painterResource(R.drawable.white_circle),
+                    contentDescription = "circle",
+                    modifier = Modifier
+                        .size(175.dp)
+                        .clip(CircleShape)
+                        .align(Alignment.Center)
+                )
+
+                Image(
+                    painter = painterResource(R.drawable.oran),
+                    contentDescription = "circle",
+                    modifier = Modifier
+                        .size(160.dp)
+                        .clip(CircleShape)
+                        .align(Alignment.Center)
+                )
+                IconButton(
+                    onClick = { },
+                    modifier = Modifier.size(150.dp)
+
+                ) {
+                    Icon(
+                        imageVector = Icons.Filled.PlayArrow,
+                        contentDescription = "Play",
+                        tint = Color.White, //White
+                        modifier = Modifier.fillMaxSize()
+                    )
+                }
+
+
+
+                // Side arrows
+                // Side arrows using the custom clip
+
+
+            }
+
+            // Bottom Row: Settings and Help
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 32.dp)
+            ) {
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .size(100.dp)
+                        .background(Color(0xFFFFEB3B), CircleShape)
+                        .clip(CircleShape)
+                ) {
+                    Icon(
+                        imageVector = Icons.Filled.Settings,
+                        contentDescription = "Settings",
+                        tint = Color.Black,
+                        modifier = Modifier.size(100.dp)
+                    )
+                }
+
+                Spacer(Modifier.width(120.dp))
+
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .size(100.dp)
+                        .background(Color(0xFFFFEB3B), CircleShape)
+                        .clip(CircleShape)
+                ) {
+                    Icon(
+                        imageVector = Icons.Filled.Help,
+                        contentDescription = "Help",
+                        tint = Color.Black,
+                        modifier = Modifier.size(100.dp)
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun GameSettings() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp), horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text("SETTINGS", style = MaterialTheme.typography.headlineLarge, color = MaterialTheme.colorScheme.onPrimary)
+
+        // Volume slider
+        SliderWithLabel(label = "Volume", value = 100f, onValueChange = {})
+
+        // Resolution slider
+        SliderWithLabel(label = "Resolution", value = 100f, onValueChange = {})
+
+        // Max FPS slider
+        SliderWithLabel(label = "Max FPS", value = 60f, onValueChange = {})
+
+
+
+        // Toggle switches
+        SwitchWithLabel(label = "Vibration", checked = true, onCheckedChange = {})
+        SwitchWithLabel(label = "Targeted Ads", checked = true, onCheckedChange = {})
+
+        Spacer(modifier = Modifier.weight(1f))
+
+        Text("Terms | Privacy Policy", style = MaterialTheme.typography.bodySmall,color = MaterialTheme.colorScheme.onPrimary)
+        Text("Version: 7.5.4.2016", style = MaterialTheme.typography.bodySmall,color = MaterialTheme.colorScheme.onPrimary)
+
+        Button(onClick = { /* Handle back navigation */ }) {
+            Text("Back")
+        }
+    }
+}
+
+@Composable
+fun HelpScreen(){
+    Column(modifier = Modifier
+        .fillMaxSize()
+        .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp)){
+        Text("INSTRUCTIONS", color = Color.White, textAlign = TextAlign.Center)
+        Text("Each player starts with a fleet of ships placed on a grid. The objective is to destroy your opponent’s fleet before they destroy yours. However, unlike the traditional battleship game, players must choose between two actions on their turn:\n" +
+                "\n" +
+                "Attack: Choose a tile on your opponent’s grid to launch an attack. If a ship is present, it takes damage. If not, the attack is wasted.\n" +
+                "Fortify/Defend: Instead of attacking, players can re-strategize by moving ships that haven’t been damaged so far. The background color of the interface indicates the next player’s turn. Players take turns attacking or fortifying until one fleet is completely destroyed.\n"
+                , color = Color.Green)
+    }
+}
+
+@Composable
+fun SliderWithLabel(label: String, value: Float, onValueChange: (Float) -> Unit) {
+    Column {
+        Text(label, style = MaterialTheme.typography.bodyMedium,color = MaterialTheme.colorScheme.onPrimary)
+        Slider(value = value, onValueChange = onValueChange, valueRange = 0f..100f)
+    }
+}
+
+@Composable
+fun SwitchWithLabel(label: String, checked: Boolean, onCheckedChange: (Boolean) -> Unit) {
+    Row(verticalAlignment = Alignment.CenterVertically) {
+        Text(label, style = MaterialTheme.typography.bodyMedium,color = MaterialTheme.colorScheme.onPrimary)
+        Spacer(modifier = Modifier.width(8.dp))
+        Switch(checked = checked, onCheckedChange = onCheckedChange)
+    }
+}
+
+
+@Preview
+@Composable
+fun PreviewGameSettings(){
+    GameSettings()
+}
+
+@Preview
+@Composable
+fun PreviewTitleScreen() {
+    TitleScreen()
+}
